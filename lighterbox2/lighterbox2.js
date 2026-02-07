@@ -3,7 +3,14 @@
 var llocation
 lbox=document.createElement('div')
 lbox.id='lighterbox2'
-lbox.style.height=document.body.offsetHeight+'px'
+lbox.style.height = Math.max(
+    document.body.scrollHeight, 
+    document.documentElement.scrollHeight, 
+    document.body.offsetHeight, 
+    document.documentElement.offsetHeight, 
+    document.body.clientHeight, 
+    document.documentElement.clientHeight
+)+'px';
 document.body.appendChild(lbox)
 lighterboxwrapper=document.createElement('div')
 lighterboxwrapper.id='lighterboxwrapper2'
